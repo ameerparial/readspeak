@@ -1,0 +1,340 @@
+:root {
+  --active-color: #007bff;
+  --left-space: 200px;
+  --theme: white;
+  /*  */
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --primary-color: #007bff;
+}
+
+[data-theme="dark"] {
+  /* Dark Theme */
+  --bg-color: #181818;
+  --text-color: #ffffff;
+  --primary-color: #0d6efd;
+  /* Define other dark theme colors */
+}
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+.parent {
+  display: flex;
+}
+
+.child1 {
+  background-color: var(--bg-color);
+  position: relative;
+  z-index: 2;
+}
+.fixed-me {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: var(--left-space);
+  background-color: inherit;
+}
+
+.header .arrowicon {
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  right: 1px;
+}
+
+.navbar-items {
+  margin-top: 80px;
+  padding: 0px;
+}
+
+.navbar-items li {
+  list-style: none;
+}
+.navbar-items li .icon {
+  width: 20px;
+  height: 30px;
+  margin-right: 10px;
+}
+.navbar-items li a {
+  display: flex;
+  align-items: center;
+  padding: 12px 30px;
+  cursor: pointer;
+}
+.smallItem .navbar-items li .icon {
+  width: 22px;
+  height: 22px;
+  margin-right: 0px;
+}
+.smallItem .navbar-items li a {
+  display: flex;
+  flex-direction: column;
+  font-size: x-small;
+}
+.navbar-items li:hover {
+  background-color: #ececec;
+}
+.fixed-me .active {
+  color: var(--active-color);
+}
+main {
+  width: 100%;
+}
+main .body-content {
+  margin-top: 80px;
+  margin-left: var(--left-space);
+}
+.subtitle {
+  left: var(--left-space);
+}
+.topbar,
+.bottombar {
+  background-color: var(--bg-color);
+  z-index: 1;
+  left: var(--left-space);
+}
+.topbar img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+.tracker-container {
+  width: 100%;
+  height: 1.5px;
+  background-color: black;
+  cursor: grab;
+  position: relative;
+}
+.tracker-container .tracker {
+  height: inherit;
+  background-color: var(--active-color);
+  position: absolute;
+  top: 0px;
+}
+.timer {
+  position: absolute;
+  right: 5px;
+}
+.controller {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px;
+}
+
+.controller .icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  padding: 8px;
+  cursor: pointer;
+}
+.controller .playpause {
+  color: white;
+  background-color: var(--active-color);
+  width: 15px;
+  height: 15px;
+  padding: 10px;
+}
+.controller .icon:hover {
+  background-color: rgb(206, 200, 200);
+  color: white;
+}
+.controller .wrapper .imgSpeed {
+  display: flex;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  user-select: none;
+}
+
+.controller .wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  cursor: pointer;
+}
+.controller .wrapper .show-onclick {
+  position: absolute;
+  bottom: 50px;
+  width: 250px;
+  z-index: 20;
+}
+
+.separator {
+  padding: 10px;
+  margin: 0px;
+}
+.separator:not(:last-child) {
+  border-bottom: 0.2px solid rgb(163, 161, 161);
+}
+.separator:hover > .circle-mark,
+.selected-speaker > .circle-mark {
+  background-color: var(--active-color);
+}
+.separator:hover .speaker-name,
+.selected-speaker .speaker-name {
+  color: var(--active-color);
+}
+.separator:hover .speaker-image,
+.selected-speaker .speaker-image {
+  border: 0.2px solid var(--active-color);
+}
+/*  Read Input Field icons*/
+.icons .icon-wrapper {
+  position: relative;
+}
+.icons .label {
+  display: none;
+}
+.icons .icon {
+  width: 16px;
+  height: 20px;
+  padding: 2px;
+  margin: 1px;
+  cursor: pointer;
+}
+.icons .icon:hover + .label {
+  position: absolute;
+  right: 0px;
+  display: block;
+  width: max-content;
+  background-color: rgba(102, 100, 100, 0.6);
+  color: white;
+  border: none;
+  padding: 1px 5px;
+  border-radius: 5px;
+}
+.form-floating input[type="password"] {
+  position: relative;
+}
+.form-floating .icon {
+  position: absolute;
+  right: 0px;
+  top: 50%;
+  translate: -50% -50%;
+  cursor: pointer;
+  color: rgb(128, 125, 125);
+}
+.voice-card {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.voice-card:hover,
+.speaker .active,
+.scrollable-container .active {
+  border-color: var(--active-color);
+}
+.voice-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #e9ecef;
+  display: inline-block;
+}
+.info-section {
+  flex-grow: 1;
+  margin-left: 10px;
+  max-width: calc(100% - 100px); /* Adjust for avatar and button */
+}
+.speaker-name {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.styles-text {
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+.description {
+  margin-top: 10px;
+  font-size: 0.875rem;
+}
+.form-control:focus,
+input[type="text"]:focus,
+.form-select:focus {
+  box-shadow: none;
+  border-color: var(--active-color);
+}
+
+/* Custom scrollbar styles */
+.scroll-parent-width {
+  width: 300px;
+}
+::-webkit-scrollbar {
+  width: 4px; /* Width of the scrollbar */
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Track color */
+  border-radius: 12px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--active-color);
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--active-color); /* Color on hover */
+}
+
+/* Make sure your container is scrollable */
+.scrollable-container {
+  height: 400px; /* Set a fixed height */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+.color-change {
+  color: var(--active-color);
+}
+
+.color-setting {
+  width: 10px;
+  transition: 0.2s all;
+  background-color: var(--text-color);
+}
+.color-setting:hover {
+  width: 50px;
+}
+
+.form-floating .form-control {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.form-floating .form-control:focus {
+  background-color: var(--focus-background-color);
+  border-color: var(--primary-color);
+}
+
+.form-floating label {
+  color: var(--text-color);
+}
+
+.icon-wrapper .icon {
+  color: var(--text-color);
+}
+.controller-list {
+  background-color: var(--bg-color);
+}
+.mytable {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+.offcanvas {
+  background-color: var(--bg-color);
+  border-width: 1px;
+}
