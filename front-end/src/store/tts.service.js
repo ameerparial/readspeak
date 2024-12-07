@@ -4,7 +4,7 @@ import { create } from "zustand";
 // const API_URL =
 //   process.env.NODE_ENV === "development" ? "http://localhost:5000" : "/";
 
-const API_URL = "http://localhost:5000";
+const API_URL = "https://readspeakapp.azurewebsites.net";
 
 export const useTTSStore = create((set) => ({
   sentences: [],

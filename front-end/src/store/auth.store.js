@@ -5,7 +5,7 @@ import axios from "axios";
 //   process.env.NODE_ENV === "development"
 //     ? "http://localhost:5000/api/auth"
 //     : "/api/auth";
-const API_URL = "http://localhost:5000/api/auth";
+const API_URL = "https://readspeakapp.azurewebsites.net";
 axios.defaults.withCredentials = true;
 export const authStore = create((set) => {
   const handleObject = {
